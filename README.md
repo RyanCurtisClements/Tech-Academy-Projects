@@ -1,2 +1,2 @@
 # Tech-Academy-Projects
-These are my Tech Academy projects for learning purposes.
+A grouping of the projects which I built as part of my education at The Tech Academy. They are further organized according to the language they focused on.

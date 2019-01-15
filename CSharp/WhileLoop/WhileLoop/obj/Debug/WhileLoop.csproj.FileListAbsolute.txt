@@ -1,0 +1,7 @@
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\bin\Debug\WhileLoop.exe.config
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\bin\Debug\WhileLoop.exe
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\bin\Debug\WhileLoop.pdb
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\obj\Debug\WhileLoop.csprojAssemblyReference.cache
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\obj\Debug\WhileLoop.csproj.CoreCompileInputs.cache
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\obj\Debug\WhileLoop.exe
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-Basic-C-Sharp-Projects\Booleans\WhileLoop\WhileLoop\WhileLoop\obj\Debug\WhileLoop.pdb

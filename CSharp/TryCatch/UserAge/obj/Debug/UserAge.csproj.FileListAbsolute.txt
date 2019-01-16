@@ -1,0 +1,7 @@
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\bin\Debug\UserAge.exe.config
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\bin\Debug\UserAge.exe
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\bin\Debug\UserAge.pdb
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\obj\Debug\UserAge.csprojAssemblyReference.cache
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\obj\Debug\UserAge.csproj.CoreCompileInputs.cache
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\obj\Debug\UserAge.exe
+C:\Users\wizca\Documents\GitHub\The-Tech-Academy-C-Projects\UserAge\UserAge\obj\Debug\UserAge.pdb

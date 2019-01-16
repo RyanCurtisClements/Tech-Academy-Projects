@@ -1,0 +1,74 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: slategray;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    height: auto;
+}
+
+.col {
+    padding: 15px;
+}
+
+.col-sm {
+    display:inline-block;
+    padding-right: 4px;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+#inputRow {
+    column-count: 2;
+}
+
+#submit {
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 12px;
+}
+
+#inquiryRow {
+    text-align:center;
+}
+
+#quoteJumbo {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}
+
+#subText {
+    font-size:smaller;
+}
+
+.contactElement {
+    text-align: center;
+}
+
+.rambling {
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: 75%;
+    display: inline-block;
+}

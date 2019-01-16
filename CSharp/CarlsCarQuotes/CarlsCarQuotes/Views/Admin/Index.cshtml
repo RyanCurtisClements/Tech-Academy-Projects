@@ -1,0 +1,29 @@
+﻿@using CarlsCarQuotes.ViewModels
+@model List<CarSeekersVm>
+
+<div class="row">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="m-0">Past Inquiries</h3>
+        </div>
+        <div class="card-body">
+            @foreach (var pastInquiry in Model)
+            {
+            <div class="container">
+                <div id="inquiryRow" class="row">
+                    <div class="col-sm">
+                        @pastInquiry.FirstName
+                    </div>
+                    <div class="col-sm">
+                        @pastInquiry.LastName
+                    </div>
+                    <div class="col-sm">
+                        @pastInquiry.EmailAddress
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+

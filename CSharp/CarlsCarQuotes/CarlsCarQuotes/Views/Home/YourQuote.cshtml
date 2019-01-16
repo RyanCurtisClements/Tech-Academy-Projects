@@ -1,0 +1,19 @@
+﻿@using CarlsCarQuotes.Models
+@model List<CarSeekerProcessed>
+
+@{
+    ViewBag.Title = "Your Quote";
+}
+
+@{
+    var last = Model.Last();
+}
+
+<div id="quoteJumbo" class="jumbotron">
+    <h2 class="display-4">Your Savings Have Been Calculated!</h2>
+    <p class="lead">Your monthly total with us comes out to $@Html.DisplayFor(modelItem => last.FinalQuote), an incredible bargain!</p>
+    <hr class="my-4">
+    <p id="subText">Thank you for choosing Carl's Car Quotes today, @Html.DisplayFor(modelItem => last.FirstName).</p>
+</div>
+
+

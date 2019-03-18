@@ -65,6 +65,10 @@ flexible container, and gave it the "justify-content: center" property to align 
         margin-top: 50px;
         }
 
+        #hires-create a {
+            color:red;
+        }
+
         #hires-button .btn {
         margin-left: -2px;
         margin-top: 7px;
@@ -88,6 +92,10 @@ flexible container, and gave it the "justify-content: center" property to align 
         #hires-create {
         margin-left: 15%;
         margin-top: 50px;
+        }
+
+        #hires-create a {
+            color:red;
         }
 
         #hires-button {
@@ -115,6 +123,7 @@ or not as the browser resizes. While this was a neat feature, I didn't feel that
 other hand, the <tr> tag establishes a table with header cells and standard data cells, which was a much better match.
 
     //Before
+
     <h3>Are you sure you want to delete this?</h3>
     <div>
         <dl class="dl-horizontal">
@@ -178,6 +187,7 @@ other hand, the <tr> tag establishes a table with header cells and standard data
     </div>
 
     // After
+
     <h3 id="deleteAppHead">Are you sure you want to delete this?</h3>
 
     <div class="container" id="deleteAppContainer">
@@ -307,6 +317,127 @@ my formatting changes.
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###Check Admin Login
+In this story, I was working to fix a bug where admin accounts could fill out forms that should only be accessible 
+to student accounts. There were three different Models with this issue, JPApplications, JPCurrentJobs and JPHires.
+
+First I looked at JPApplications, which did not check the active login's account type before allowing the user to 
+submit form data. To solve this issue, I encapsulated the form's "Submit" and "Back to List" buttons with an 
+if-else statement to check the user's role. If the user was not an admin, the buttons appeared at the bottom of 
+the form as usual. If the user was an admin, they would would get an error message instructing them to sign up 
+for a student account and a link to do so.
+
+    //Before
+
+        <div class="form-group" id="inline1">
+            <div class="row justify-content-between">
+                <div class="col-md-6 col-sm-5">
+                    <input type="submit" value="Submit" class="btn btn-default jpAppBtn" />
+                </div>
+                <div class="col-md-6 col-sm-5 jphires-right-align">
+                    <input type="button" value="Back to List" class="btn btn-default" onclick="location.href='@Url.Action("StudentIndex", "JPApplications")'" />
+                </div>
+            </div>
+        </div>
+                
+    //After
+
+        if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+        {
+            <div class="form-group" id="inline1">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 col-sm-5">
+                        <input type="submit" value="Submit" class="btn btn-default jpAppBtn" />
+                    </div>
+                    <div class="col-md-6 col-sm-5">
+                        <input type="button" value="Back to List" class="btn btn-default" id="hires-button-right" onclick="location.href='@Url.Action("StudentIndex", "JPApplications")'" />
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group" id="inline1">
+                <div class="text-center">
+                    <a href="../Account/Register" id="JPApplications-Create-error-text">You must be registered and logged in as a student to create an application.</a>
+                </div>
+            </div>
+        }
+
+After I'd done this for the JPApplications Create View, I went in and added a similar if-else statement 
+to the bottom of the form in the JPCurrentJobs Create View.
+
+    //Before
+
+        <div class="form-group center-block">
+            <div class="col-md-10 no-left-gutter">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" class="btn btn-default pull-right" value="Back to List" onclick="location.href='@Url.Action("Index", "JPCurrentJobs")'" />
+            </div>
+        </div>
+
+    //After
+
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+    {
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" class="btn btn-default" id="hires-button-right" value="Back to List" onclick="location.href='@Url.Action("Index", "JPCurrentJobs")'" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <div id="JPCurrentJobs-Create-error-message">
+                <a href="../Account/Register" id="JPCurrentJobs-Create-error-text">You must register and be logged in as a student in order to log your current job.</a>
+            </div>
+        </div>
+    }
+
+The JPHires Create View already contained code similar to what I created for the other two Views, but the 
+existing error message merely instructed the user to register and log-in (which fails to address users 
+who ARE logged in, just as admins), and the link uses an absolute path when it should have used a relative
+path, so I adjusted it slightly.
+
+    //Before
+
+        <div class="form-group">
+            <div class="text-center">
+                <a href="http://localhost:51507/Account/Register"> You must be registered and logged in before you can create a new hire.</a>
+            </div>
+        </div>
+
+    //After
+    
+        <div class="form-group">
+            <div class="text-center">
+                <a href="../Account/Register"> You must be registered and logged in as a student before you can create a new hire.</a>
+            </div>
+        </div>
+
+Once I'd made these changes, all that was left was for me to do was create sections in the stylesheet 
+and properly format my additions.
+
+    /*************
+        Styling for JPApplications Create View
+    *************/
+
+    #JPApplications-Create-error-text {
+        color: red;
+    }
+
+    /**************
+    Styling for JPCurrentJobs Create View
+    **************/
+
+    #JPCurrentJobs-Create-error-message {
+        padding-left: 5%;
+    }
+    #JPCurrentJobs-Create-error-text {
+        color:red;
+    }
+
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###Styling JPApplications Edit View

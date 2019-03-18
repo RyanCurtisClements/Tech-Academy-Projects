@@ -1,0 +1,17 @@
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+    {
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" class="btn btn-default" id="hires-button-right" value="Back to List" onclick="location.href='@Url.Action("Index", "JPCurrentJobs")'" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <div id="JPCurrentJobs-Create-error-message">
+                <a href="../Account/Register" id="JPCurrentJobs-Create-error-text">You must register and be logged in as a student in order to log your current job.</a>
+            </div>
+        </div>
+    }

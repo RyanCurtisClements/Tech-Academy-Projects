@@ -1,0 +1,21 @@
+        if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+        {
+            <div class="form-group" id="inline1">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 col-sm-5">
+                        <input type="submit" value="Submit" class="btn btn-default jpAppBtn" />
+                    </div>
+                    <div class="col-md-6 col-sm-5">
+                        <input type="button" value="Back to List" class="btn btn-default" id="hires-button-right" onclick="location.href='@Url.Action("StudentIndex", "JPApplications")'" />
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group" id="inline1">
+                <div class="text-center">
+                    <a href="../Account/Register" id="JPApplications-Create-error-text">You must be registered and logged in as a student to create an application.</a>
+                </div>
+            </div>
+        }

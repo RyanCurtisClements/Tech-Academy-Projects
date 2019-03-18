@@ -7,6 +7,10 @@ Styling for JPHires Create View
     margin-top: 50px;
     }
 
+#hires-create a {
+    color:red;
+}
+
 #hires-button {
     justify-content:space-between;
     display: flex;

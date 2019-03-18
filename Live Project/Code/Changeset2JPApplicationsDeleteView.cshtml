@@ -1,0 +1,89 @@
+    <h3 id="deleteAppHead">Are you sure you want to delete this?</h3>
+
+    <div class="container" id="deleteAppContainer">
+        <div class="col-sm-12">
+            <table>
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPCompanyName)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPCompanyName)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPJobTitle)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPJobTitle)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPJobCategory)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPJobCategory)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPCompanyCity)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPCompanyCity)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPCompanyState)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPCompanyState)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="deleteAppTable">
+                        @Html.DisplayNameFor(model => model.JPApplicationDate)
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="deleteAppTable">
+                        @Html.DisplayFor(model => model.JPApplicationDate)
+                    </td>
+                </tr>
+            </table>
+        </div>
+                @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" id="deleteAppLeftBtn" value="Delete" class="btn btn-default" />
+                <input type="button" id="deleteAppRightBtn" value="Back to List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "JPApplications")'" />
+            </div>
+        }
+
+    </div>

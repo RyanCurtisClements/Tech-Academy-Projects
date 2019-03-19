@@ -1,0 +1,34 @@
+    /*************
+    Styling for JPApplications Edit View
+    *************/
+    #JPApplications-Edit-error {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 78%;
+    }
+    #JPApplications-Edit-error-message {
+        padding-bottom: 1em;
+    }
+    #JPApplications-Edit-error-text {
+        color: red;
+    }
+    #JPApplications-Edit-button-container {
+        display: flex;
+        flex-direction: row;
+        width: 78%;
+    }
+    #editAppBtnLeft {
+        float: left;
+    }
+    #editAppBtnRight {
+        float: right;
+    }
+    .JPApplications-Edit-Checkbox input[type="checkbox"] {
+        vertical-align: middle;
+        margin-left: 1em;
+        width: 2em;
+    }
+    .JPApplications-Edit-Checkbox .control-label {
+        margin-bottom: 0px;
+    }

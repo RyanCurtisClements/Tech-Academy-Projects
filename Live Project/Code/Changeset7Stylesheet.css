@@ -1,0 +1,26 @@
+/******************
+    JPBulletins Edit View
+*******************/
+#JPBulletins-Edit-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+#JPBulletins-Edit-form {
+    width: 50%;
+    margin-left: 5%;
+}
+#JPBulletins-Edit-form .form-group {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#JPBulletins-Edit-buttonleft {
+    display: block;
+    margin-left:auto;
+    float: left;
+}
+#JPBulletins-Edit-buttonright {
+    display: block;
+    float: right;
+}

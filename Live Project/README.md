@@ -509,9 +509,155 @@ padding-bottom property to lessen the bottom gap.
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###JPApplications Checkboxes Alignment
+This was another rather basic story concerning the proper alignment of checkboxes. In this instance, our 
+project just did not yet have a section in our stylesheet, and so no styling had been applied. I let myself 
+experiment around with different styles for this story, and I enjoyed working to align labels and checkboxes 
+in relation to one another.
+
+    /*************
+    Styling for JPApplications Edit View
+    *************/
+    #JPApplications-Edit-error {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 78%;
+    }
+    #JPApplications-Edit-error-message {
+        padding-bottom: 1em;
+    }
+    #JPApplications-Edit-error-text {
+        color: red;
+    }
+    #JPApplications-Edit-button-container {
+        display: flex;
+        flex-direction: row;
+        width: 78%;
+    }
+    #editAppBtnLeft {
+        float: left;
+    }
+    #editAppBtnRight {
+        float: right;
+    }
+    .JPApplications-Edit-Checkbox input[type="checkbox"] {
+        vertical-align: middle;
+        margin-left: 1em;
+        width: 2em;
+    }
+    .JPApplications-Edit-Checkbox .control-label {
+        margin-bottom: 0px;
+    }
+
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###Styling JPBulletins Edit View
+This was actually two separate stories which I grabbed at once because they both had to do with formatting 
+the JPBulletins Edit View. The first story required to center the form vertically on the page and turning 
+the "Back to List" link into an actual button. To accomplish this, I added ids to some elements in the 
+JPBulletins Edit View and exchanged the Html.ActionLink for a button input. 
+
+    //Before
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BulletinId)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    //After
+
+    @Html.AntiForgeryToken()
+        
+    <div id="JPBulletins-Edit-container">
+        <div class="form-horizontal" id="JPBulletins-Edit-form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.BulletinId)
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="button" value="Back to Bulletins" class="btn btn-default" onclick="location.href='@Url.Action("Index", "JPBulletins")'" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+Then, I created a section in the stylesheet and added the relevant properties.
+
+    /******************
+        JPBulletins Edit View
+    *******************/
+    #JPBulletins-Edit-container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    #JPBulletins-Edit-form {
+        width: 50%;
+        margin-left: 5%;
+    }
+    #JPBulletins-Edit-form .form-group {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+Next, I was required to align the buttons with either edge of the form, and to truncate the "Date" field 
+to only display measurements greater than an hour. The button aligning was something that I was fairly 
+accomplished at by this point in time, but I had to do a bit of research to figure out how to truncate 
+the "Date" field, and I ended up changing it from a Html.EditorFor into a Html.TextBoxFor.
+
+    //New Stylesheet Code
+
+    #JPBulletins-Edit-buttonleft {
+        display: block;
+        margin-left:auto;
+        float: left;
+    }
+    #JPBulletins-Edit-buttonright {
+        display: block;
+        float: right;
+    }
+
+    //Before 
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BulletinDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BulletinDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BulletinDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="button" value="Back to Bulletins" class="btn btn-default" onclick="location.href='@Url.Action("Index", "JPBulletins")'" />
+        </div>
+    </div>
+
+    //After
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BulletinDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.BulletinDate, "{0:MM/dd/yyyy}", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BulletinDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" id="JPBulletins-Edit-buttonleft" />
+            <input type="button" value="Back to Bulletins" class="btn btn-default" id="JPBulletins-Edit-buttonright" onclick="location.href='@Url.Action("Index", "JPBulletins")'" />
+        </div>
+    </div>
+
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###Salary Conversion

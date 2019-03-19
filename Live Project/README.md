@@ -409,7 +409,7 @@ path, so I adjusted it slightly.
         </div>
 
     //After
-    
+
         <div class="form-group">
             <div class="text-center">
                 <a href="../Account/Register"> You must be registered and logged in as a student before you can create a new hire.</a>
@@ -457,6 +457,76 @@ and properly format my additions.
 * [JPStudent Rework](#JPStudent-Rework)
 
 ###Salary Conversion
+I rather enjoyed working on this story because it allowed me to experiment with JQuery, which is something 
+that was very new to me. Essentially, students who wished to record a hiring could either input a number 
+for hourly wages or a yearly salary. If the student entered an hourly wage, we wanted to convert that into 
+an equivalent yearly salary with the assumption that the student would work around 2080 hours in a year. 
+Regardless of whether the student submitted a yearly or hourly rate, the student's wage was to be recorded 
+as an annual salary. Sadly, the code as written did not do this, meaning students earning $30 an hour were 
+shown to be earning $30 a year.
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+            $(document).ready(function () {
+                $("input[value='Hourly']").click(function () {
+                    var salary = $("#job-salary-input").val();
+                    console.log(salary);
+                    console.log(salary * 2080);
+                })
+            });
+        </script>
+    }
+
+In the existing code, the JQuery script operated as follows; after the page is fully loaded, it waits 
+for the "Hourly" radio button to be clicked. Once this button is clicked, it then assigns the value in 
+the "job-salary-input" field to var salary, prints var salary to the console, and then prints the result 
+of var salary multiplied by 2080 to the console. While the console readout confirmed that these operations 
+were taking place, we were failing to reassign our variable's value after the multiplication function 
+has been completed.
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+            $(document).ready(function () {
+
+                function CalcForHourly(hourlySalary) {
+                    return hourlySalary * 2080;
+                }
+
+                $("#job-salary-input").blur(function () {
+                    var salary = $("#job-salary-input").val();
+
+                    $("input[value='Hourly']").click(function () {
+                        $("input[value='Submit']").click(function () {
+                            $("#job-salary-input").val(CalcForHourly(salary));
+                        })
+                    })
+                })
+            })
+        </script>
+    }
+
+The JQuery script I wrote is more complicated to take into account several different possibilities. 
+First, when the page is fully loaded we have a named function "CalcForHourly" which takes a 
+variable "hourlySalary" and returns that variable multiplied by 2080. Then, we have an unnamed 
+function which assigns the value in the "job-salary-input" field to var salary once focus leaves 
+the field in question. In other words, the "blur" event method is set to trigger when the user 
+clicks outside of the box. This is an improvement over assigning the value when the button is 
+selected because some users may click the button before inputting values, which would result in 
+incorrect information being returned.
+
+Next, we have a function waiting to trigger if the Hourly button is clicked. Upon that click, 
+the script then prepares to trigger the next function if the Submit button is clicked. It was 
+important to wait for the form to be submitted, because users may initially input a value that 
+is incorrect, and we want to give them the opportunity to make changes before submitting their 
+information.
+
+Once the Submit button is clicked, we call our CalcForHourly function on the salary variable, 
+which multiplies the variable by 2080 and the result is then assigned to "job-salary-input", 
+giving us our approximate yearly salary.
+
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###JPStudent Rework

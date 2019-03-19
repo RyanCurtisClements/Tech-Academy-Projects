@@ -1,0 +1,22 @@
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+            $(document).ready(function () {
+
+                function CalcForHourly(hourlySalary) {
+                    return hourlySalary * 2080;
+                }
+
+                $("#job-salary-input").blur(function () {
+                    var salary = $("#job-salary-input").val();
+
+                    $("input[value='Hourly']").click(function () {
+                        $("input[value='Submit']").click(function () {
+                            $("#job-salary-input").val(CalcForHourly(salary));
+                        })
+                    })
+                })
+            })
+        </script>
+    }

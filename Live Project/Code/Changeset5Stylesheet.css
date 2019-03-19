@@ -1,0 +1,29 @@
+    /***********************************
+        Analytics.cshtml Styling
+    *********************************/
+	
+    .infoBoxesAnalytics {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    #wrapperAnalytics {
+        overflow: hidden;
+    }
+
+    .borderAnalytics {
+        border: 1px solid #1a2b51;
+        margin: 5px;
+        position: relative;
+        display: inline-block;
+    }
+
+    #buttonAnalytics {
+        margin-bottom: 6px;
+    }
+    
+    #Carousel {
+            margin: -70px 0px 0px 160px;
+            padding-bottom: 60px;
+    }

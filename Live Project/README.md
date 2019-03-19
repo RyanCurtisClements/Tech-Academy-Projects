@@ -26,10 +26,13 @@ instance.
 * [Styling JPHires Create Buttons](#Styling-JPHires-Create-Buttons)
 * [Styling JPApplications Delete View](#Styling-JPApplications-Delete-View)
 * [Check Admin Login](#Check-Admin-Login)
-* [Styling JPApplications Edit View](#Styling-JPApplications-Edit-View)
 * [Styling Analytics View](#Styling-Analytics-View)
 * [JPApplications Checkboxes Alignment](#JPApplications-Checkboxes-Alignment)
 * [Styling JPBulletins Edit View](#Styling-JPBulletins-Edit-View)
+
+##Back End Stories
+* [Salary Conversion](#Salary-Conversion)
+* [JPStudent Rework](#JPStudent-Rework)
 
 ###Styling JPHires Create Buttons
 As I stated above, many of the stories I tackled in my first week had to do with aligning buttons properly.
@@ -440,10 +443,69 @@ and properly format my additions.
 
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
-###Styling JPApplications Edit View
-*Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
-
 ###Styling Analytics View
+This was a rather simple little story where I was assigned the task of prevented overflow, centering items 
+on the page, and shrinking the gap between the end of page-specific content and "footer" content. I only 
+had to use a couple of tags to accomplish this, I first of all made the infoboxes flexible and then used 
+the "justify-content:center" property to center items. Then I gave the page wrapper the "overflow:hidden" 
+property to hide the unnecessary white space on the page. And finally, I simply decreased the value of the 
+padding-bottom property to lessen the bottom gap.
+
+    //Before
+
+        /***********************************
+            Analytics.cshtml Styling
+        *********************************/
+    .borderAnalytics {
+        border: 1px solid #1a2b51;
+        margin: 5px;
+        position: relative;
+    }
+
+    #buttonAnalytics {
+        margin-bottom: 6px;
+        
+    #Carousel {
+        margin: -70px 0px 0px 160px;
+        padding-bottom: 160px;
+    }
+
+    #Carousel {
+        padding-bottom: 160px;
+    }
+
+    //After 
+
+    /***********************************
+        Analytics.cshtml Styling
+    *********************************/
+	
+    .infoBoxesAnalytics {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    #wrapperAnalytics {
+        overflow: hidden;
+    }
+
+    .borderAnalytics {
+        border: 1px solid #1a2b51;
+        margin: 5px;
+        position: relative;
+        display: inline-block;
+    }
+
+    #buttonAnalytics {
+        margin-bottom: 6px;
+    }
+
+    #Carousel {
+            margin: -70px 0px 0px 160px;
+            padding-bottom: 60px;
+    }
+
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
 
 ###JPApplications Checkboxes Alignment
@@ -451,10 +513,6 @@ and properly format my additions.
 
 ###Styling JPBulletins Edit View
 *Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Page Top](#live-project)*
-
-##Back End Stories
-* [Salary Conversion](#Salary-Conversion)
-* [JPStudent Rework](#JPStudent-Rework)
 
 ###Salary Conversion
 I rather enjoyed working on this story because it allowed me to experiment with JQuery, which is something 
